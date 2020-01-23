@@ -1,0 +1,37 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: quote-svc
+  labels:
+    app: quote-svc
+    workshop: workshop
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: quote-svc
+  template:
+    metadata:
+      labels:
+        app: quote-svc
+        workshop: workshop
+    spec:
+      containers:
+        - name: quote-svc
+          image: bashofmann/k8s-workshop-quote-svc:8.2.0
+          ports:
+            - containerPort: 3000
+              name: http
+          resources:
+            requests:
+              cpu: 10m
+              memory: 32Mi
+            limits:
+              memory: 512Mi
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            timeoutSeconds: 1
+            failureThreshold: 3
+            periodSeconds: 1

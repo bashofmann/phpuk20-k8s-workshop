@@ -1,0 +1,26 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: blackbox-exporter-web-application
+spec:
+  endpoints:
+    - interval: 30s
+      params:
+        module:
+          - http_2xx
+        target:
+          - https://web-application-<YOURNAME>.phpbenelux.plgrnd.be
+      path: "/probe"
+      targetPort: metrics
+      relabelings:
+        - sourceLabels:
+            - __param_target
+          targetLabel: target
+        - sourceLabels:
+            - __param_module
+          targetLabel: module
+  namespaceSelector:
+    matchNames:
+      - monitoring
+  selector:
+    app: blackbox-exporter

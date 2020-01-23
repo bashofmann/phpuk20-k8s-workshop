@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: plgrnd-all
+  namespace: default
+spec:
+  commonName: '*.phpbenelux.plgrnd.be'
+  dnsNames:
+    - '*.phpbenelux.plgrnd.be'
+  secretName: plgrnd-tls-cert
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer

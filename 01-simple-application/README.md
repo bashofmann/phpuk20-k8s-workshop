@@ -26,7 +26,7 @@ kubectl get service web-application
 * Go to http://<IP_ADDRESS>
 * Scale it up to two pods
 ```
-kubectl scale deployment web-application --replicas 2
+kubectl scale deployment web-application --replicas 3
 ```
 * See Status of Deployment
 ```

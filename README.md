@@ -27,7 +27,7 @@ https://speakerdeck.com/bastianhofmann/dive-in-workshop-kubernetes
 * https://github.com/coreos/prometheus-operator
 * https://prometheus.io/
 * http://grafana.com
-* https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.14/
+* https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.16/
 * https://operatorhub.io/
 * https://keel.sh/
 * https://helm.sh/
@@ -37,3 +37,11 @@ https://speakerdeck.com/bastianhofmann/dive-in-workshop-kubernetes
 * https://github.com/eldadru/ksniff
 * https://kubernetes.academy/
 * https://github.com/jonmosco/kube-ps1
+* https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler
+* https://github.com/herbrandson/k8dash
+* https://github.com/kubernetes/dashboard
+* https://gitlab.com/bashofmann/angular-test-app-finished
+* https://github.com/kelseyhightower/kubernetes-the-hard-way
+* https://k8s.af/
+* https://k9ss.io/
+* https://github.com/ramitsurana/awesome-kubernetes

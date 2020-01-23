@@ -1,0 +1,57 @@
+controller:
+  publishService:
+    enabled: true
+
+  extraArgs:
+    default-ssl-certificate: default/plgrnd-tls-cert
+
+  ## Required only if defaultBackend.enabled = false
+  ## Must be <namespace>/<service_name>
+  defaultBackendService: ""
+
+  ## Name of the ingress class to route through this controller
+  ingressClass: nginx
+
+  replicaCount: 3
+
+  minAvailable: 1
+
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 200m
+      memory: 256Mi
+
+  autoscaling:
+    enabled: true
+    minReplicas: 3
+    maxReplicas: 6
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+
+  metrics:
+    enabled: true
+
+    serviceMonitor:
+      enabled: false
+      additionalLabels: {}
+      namespace: ""
+
+## Default 404 backend
+defaultBackend:
+  ## If false, controller.defaultBackendService must be provided
+  enabled: true
+
+  replicaCount: 1
+
+  minAvailable: 0
+
+  resources:
+    limits:
+      cpu: 10m
+      memory: 20Mi
+    requests:
+      cpu: 10m
+      memory: 20Mi

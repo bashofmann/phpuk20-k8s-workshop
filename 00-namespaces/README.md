@@ -20,7 +20,7 @@ kubectl create namespace <YOURNAME>
 ```
 * Set default namespace to context
 ```
-kubectl config set-context admin@k8s-workshop1/symfony-live --namespace=<YOURNAME>
+kubectl config set-context admin@k8s-workshop2/phpbenelux-workshop --namespace=<YOURNAME>
 ```
 * See change in kubeconfig
 ```

@@ -1,0 +1,98 @@
+# Depending on which DNS solution you have installed in your cluster enable the right exporter
+coreDns:
+  enabled: true
+
+kubeDns:
+  enabled: false
+
+# The kube-controller-manager and kube-scheduler are managed and monitored by MetaKube itself
+kubeControllerManager:
+  enabled: false
+
+kubeScheduler:
+  enabled: false
+
+alertmanager:
+  alertmanagerSpec:
+    storage:
+      volumeClaimTemplate:
+        spec:
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 10Gi
+    replicas: 2
+    podAntiAffinity: hard
+
+prometheus:
+  prometheusSpec:
+    retention: 4h
+    ruleSelector: {}
+    ruleSelectorNilUsesHelmValues: false
+    serviceMonitorSelector: {}
+    serviceMonitorSelectorNilUsesHelmValues: false
+    podMonitorSelector: {}
+    podMonitorSelectorNilUsesHelmValues: false
+    replicas: 1
+    podAntiAffinity: hard
+  ingress:
+    enabled: true
+    annotations:
+      # type of authentication
+      nginx.ingress.kubernetes.io/auth-type: basic
+      # name of the secret that contains the user/password definitions
+      nginx.ingress.kubernetes.io/auth-secret: basic-auth
+    hosts:
+      - prometheus.phpbenelux.metakube.org
+    tls:
+      - hosts:
+          - prometheus.phpbenelux.metakube.org
+
+defaultRules:
+  rules:
+    kubernetesResources: true
+
+nodeExporter:
+  enabled: false
+
+prometheusOperator:
+  admissionWebhooks:
+    enabled: false
+
+grafana:
+  adminPassword: admin
+  sidecar:
+    image: syseleven/k8s-sidecar:0.0.18-sys11-3
+  persistence:
+    enabled: false
+  ingress:
+    enabled: true
+    annotations:
+      # type of authentication
+      nginx.ingress.kubernetes.io/auth-type: basic
+      # name of the secret that contains the user/password definitions
+      nginx.ingress.kubernetes.io/auth-secret: basic-auth
+    hosts:
+      - grafana.phpbenelux.metakube.org
+    tls:
+      - hosts:
+          - grafana.phpbenelux.metakube.org
+  grafana.ini:
+    users:
+      auto_assign_org_role: Editor
+    auth:
+      disable_login_form: true
+    auth.basic:
+      enabled: false
+    auth.anonymous:
+      enabled: true
+      org_role: Editor
+    analytics:
+      check_for_updates: false
+
+kubelet:
+  enabled: true
+  namespace: kube-system
+
+  serviceMonitor:
+    https: true
