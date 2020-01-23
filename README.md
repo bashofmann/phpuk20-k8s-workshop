@@ -1,4 +1,4 @@
-# golem-workshop
+# phpbenelux 2020 workshop
 
 ## Slides
 
