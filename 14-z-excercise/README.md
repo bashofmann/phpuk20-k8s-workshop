@@ -2,14 +2,7 @@
 
 ## Everyone
 
-For the exercise app:
-
-* Create a Dockerfile
-* Build the docker image
-* Test it locally
-* Push it to Docker Hub or another registry
-
-Or use bashofmann/exercise-app:1.0.0
+Use the docker image bashofmann/exercise-app:1.0.0
 
 * Create a Deployment
 * Create a Service of type ClusterIP (no external LoadBalancer)
