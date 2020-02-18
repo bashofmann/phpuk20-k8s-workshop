@@ -1,13 +1,13 @@
 apiVersion: cert-manager.io/v1alpha2
 kind: Certificate
 metadata:
-  name: plgrnd-all
+  name: metakube-all
   namespace: default
 spec:
-  commonName: '*.phpbenelux.plgrnd.be'
+  commonName: '*.phpuk.metakube.org'
   dnsNames:
-    - '*.phpbenelux.plgrnd.be'
-  secretName: plgrnd-tls-cert
+    - '*.phpuk.metakube.org'
+  secretName: metakube-tls-certs
   issuerRef:
     name: letsencrypt-prod
     kind: ClusterIssuer

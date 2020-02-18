@@ -13,8 +13,9 @@ spec:
       name: letsencrypt-prod
     solvers:
       - dns01:
-          digitalocean:
-            tokenSecretRef:
-              name: digitalocean-dns
-              key: access-token
-
+          route53:
+            accessKeyID: XXXXXXXX
+            region: eu-central-1
+            secretAccessKeySecretRef:
+              key: secret-access-key
+              name: route53-credentials-secret

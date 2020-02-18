@@ -1,0 +1,43 @@
+## This controls which types of resource external-dns should 'watch' for new
+## DNS entries.
+sources:
+  - service
+  - ingress
+
+## The DNS provider where the DNS records will be created (options: aws, digitalocean, google, inmemory, azure, rfc2136 )
+provider: aws
+
+#digitalocean:
+#  apiToken: CHANGEME
+
+# AWS Access keys to inject as environment variables
+aws:
+  credentials:
+    accessKey: "CHANGEME"
+    secretKey: "CHANGEME"
+    mountPath: "/.aws"
+    region: "eu-central-1"
+    zoneType: "public"
+    batchChangeSize: 1000
+
+## Limit possible target zones by domain suffixes (optional)
+domainFilters: [metakube.org]
+## Adjust the interval for DNS updates
+interval: "1m"
+
+# Registry to use for ownership (txt or noop)
+registry: "txt"
+
+# When using the TXT registry, a name that identifies this instance of ExternalDNS
+txtOwnerId: "CHANGEME"
+
+## Modify how DNS records are sychronized between sources and providers (options: sync, upsert-only )
+policy: sync
+
+## CPU and Memory limit and request for external-dns
+resources:
+  limits:
+    memory: 50Mi
+  requests:
+    memory: 50Mi
+    cpu: 10m

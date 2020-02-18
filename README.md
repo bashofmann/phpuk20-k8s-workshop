@@ -1,4 +1,4 @@
-# phpbenelux 2020 workshop
+# phpuk 2020 workshop
 
 ## Slides
 

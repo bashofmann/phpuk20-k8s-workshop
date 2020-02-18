@@ -20,7 +20,7 @@ kubectl create namespace <YOURNAME>
 ```
 * Set default namespace to context
 ```
-kubectl config set-context admin@k8s-workshop2/phpbenelux-workshop --namespace=<YOURNAME>
+kubectl config set-context admin@k8s-workshop1/workshop01 --namespace=<YOURNAME>
 ```
 * See change in kubeconfig
 ```

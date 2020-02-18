@@ -23,15 +23,15 @@ kubectl create namespace cert-manager
 helm upgrade --install --namespace cert-manager --version v0.12.0 cert-manager jetstack/cert-manager
 ```
 
-* Add Digital Ocean API Token to `digitalocean/dns-secret.yaml`
+* Add AWS API Tokes to `route53/credentials-secret.yaml` and `route53/clusterissuer.yaml`
 
 * Create ClusterIssuer
 ```
-kubectl apply -f digitalocean/dns-secret.yaml
-kubectl apply -f digitalocean/clusterissuer.yaml
+kubectl apply -f route53/credewntials-secret.yaml
+kubectl apply -f route53/clusterissuer.yaml
 ```
 
 * Create wildcard certificate
 ```
-kubectl apply -f digitalocean/certificate.yaml
+kubectl apply -f route53/certificate.yaml
 ```

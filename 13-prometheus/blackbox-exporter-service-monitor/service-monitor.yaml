@@ -9,7 +9,7 @@ spec:
         module:
           - http_2xx
         target:
-          - https://web-application-<YOURNAME>.phpbenelux.plgrnd.be
+          - https://web-application-<YOURNAME>.phpuk.plgrnd.be
       path: "/probe"
       targetPort: metrics
       relabelings:

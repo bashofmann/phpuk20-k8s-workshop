@@ -10,9 +10,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - web-application-<YOURNAME>.phpbenelux.plgrnd.be
+        - web-application-<YOURNAME>.phpuk.plgrnd.be
   rules:
-    - host: web-application-<YOURNAME>.phpbenelux.plgrnd.be
+    - host: web-application-<YOURNAME>.phpuk.plgrnd.be
       http:
         paths:
           - path: /
