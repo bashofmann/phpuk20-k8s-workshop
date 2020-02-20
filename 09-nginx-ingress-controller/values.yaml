@@ -3,7 +3,7 @@ controller:
     enabled: true
 
   extraArgs:
-    default-ssl-certificate: default/plgrnd-tls-cert
+    default-ssl-certificate: default/metakube-tls-certs
 
   ## Required only if defaultBackend.enabled = false
   ## Must be <namespace>/<service_name>

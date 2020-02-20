@@ -43,10 +43,10 @@ prometheus:
       # name of the secret that contains the user/password definitions
       nginx.ingress.kubernetes.io/auth-secret: basic-auth
     hosts:
-      - prometheus.phpuk.plgrnd.be
+      - prometheus.phpuk.metakube.org
     tls:
       - hosts:
-          - prometheus.phpuk.plgrnd.be
+          - prometheus.phpuk.metakube.org
 
 defaultRules:
   rules:
@@ -75,10 +75,10 @@ grafana:
       # name of the secret that contains the user/password definitions
       nginx.ingress.kubernetes.io/auth-secret: basic-auth
     hosts:
-      - grafana.phpuk.plgrnd.be
+      - grafana.phpuk.metakube.org
     tls:
       - hosts:
-          - grafana.phpuk.plgrnd.be
+          - grafana.phpuk.metakube.org
   grafana.ini:
     users:
       auto_assign_org_role: Editor

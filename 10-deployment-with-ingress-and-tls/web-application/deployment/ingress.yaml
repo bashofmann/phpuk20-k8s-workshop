@@ -10,9 +10,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - web-application-<YOURNAME>.phpuk.plgrnd.be
+        - web-application-<YOURNAME>.phpuk.metakube.org
   rules:
-    - host: web-application-<YOURNAME>.phpuk.plgrnd.be
+    - host: web-application-<YOURNAME>.phpuk.metakube.org
       http:
         paths:
           - path: /
